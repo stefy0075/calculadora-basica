@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 class Calculadora {
   sumar = (num1, num2) => {
@@ -60,7 +60,10 @@ const Home = () => {
 
     if (isNaN(valorActualNum) || isNaN(valorAnteriorNum)) return;
 
-    const resultado = calculadora[tipoOperacion](valorAnteriorNum, valorActualNum);
+    const resultado = calculadora[tipoOperacion](
+      valorAnteriorNum,
+      valorActualNum
+    );
     setValorActual(resultado.toString());
   };
 
@@ -68,38 +71,47 @@ const Home = () => {
   const botonesOperadores = ["/", "*", "-", "+"];
 
   return (
-    <div className="bg-red w-[50%] h-[100%]">
-      <div className="calculadora">
-        <div className="display">
+    <div className="bg-secondary h-screen flex justify-center items-center">
+      <div className="w-[30%] h-[70%]  border-2 rounded-[1rem]">
+        <div className="border bg-primary flex flex-col justify-center items-end pr-[1rem] rounded-[1rem] h-[30%] text-white text-2xl">
           <div id="valor-anterior">{valorAnterior}</div>
           <div id="valor-actual">{valorActual}</div>
         </div>
-
-        <button className="column-2" onClick={borrarTodo} id="boton-c">
-          C
-        </button>
-        <button onClick={borrar}>&larr;</button>
-        <button className="operador" id="naranja" onClick={() => computar("dividir")}>
-          %
-        </button>
-        {botonesNumeros.map((numero) => (
-          <button className="numero" key={numero} onClick={() => agregarNumero(numero)}>
-            {numero}
+        <div className="border-[red] h-[70%] rounded-[1rem] border-2">
+          <button className="column-2" onClick={borrarTodo} id="boton-c">
+            C
           </button>
-        ))}
-        {botonesOperadores.map((operador) => (
+          <button onClick={borrar}>&larr;</button>
           <button
             className="operador"
             id="naranja"
-            key={operador}
-            onClick={() => computar(operador)}
+            onClick={() => computar("dividir")}
           >
-            {operador}
+            %
           </button>
-        ))}
-        <button className="operador" id="naranja" onClick={calcular}>
-          =
-        </button>
+          {botonesNumeros.map((numero) => (
+            <button
+              className="numero"
+              key={numero}
+              onClick={() => agregarNumero(numero)}
+            >
+              {numero}
+            </button>
+          ))}
+          {botonesOperadores.map((operador) => (
+            <button
+              className="operador"
+              id="naranja"
+              key={operador}
+              onClick={() => computar(operador)}
+            >
+              {operador}
+            </button>
+          ))}
+          <button className="operador" id="naranja" onClick={calcular}>
+            =
+          </button>
+        </div>
       </div>
     </div>
   );
