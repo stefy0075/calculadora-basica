@@ -1,22 +1,22 @@
 import React, { useState } from "react";
 
 class Calculadora {
-  sumar = (num1, num2) => {
-    return num1 + num2;
-  };
-
-  restar = (num1, num2) => {
-    return num1 - num2;
-  };
-
-  dividir = (num1, num2) => {
-    return num1 / num2;
-  };
-
-  multiplicar = (num1, num2) => {
-    return num1 * num2;
-  };
-}
+    sumar = (num1, num2) => {
+      return num1 + num2;
+    };
+  
+    restar = (num1, num2) => {
+      return num1 - num2;
+    };
+  
+    dividir = (num1, num2) => {
+      return num1 / num2;
+    };
+  
+    multiplicar = (num1, num2) => {
+      return num1 * num2;
+    };
+  }
 
 const Home = () => {
   const [valorActual, setValorActual] = useState("");
@@ -60,10 +60,23 @@ const Home = () => {
 
     if (isNaN(valorActualNum) || isNaN(valorAnteriorNum)) return;
 
-    const resultado = calculadora[tipoOperacion](
-      valorAnteriorNum,
-      valorActualNum
-    );
+    let resultado;
+    switch (tipoOperacion) {
+      case "sumar":
+        resultado = calculadora.sumar(valorAnteriorNum, valorActualNum);
+        break;
+      case "restar":
+        resultado = calculadora.restar(valorAnteriorNum, valorActualNum);
+        break;
+      case "dividir":
+        resultado = calculadora.dividir(valorAnteriorNum, valorActualNum);
+        break;
+      case "multiplicar":
+        resultado = calculadora.multiplicar(valorAnteriorNum, valorActualNum);
+        break;
+      default:
+        return;
+    }
     setValorActual(resultado.toString());
   };
 
@@ -108,7 +121,11 @@ const Home = () => {
               {operador}
             </button>
           ))}
-          <button className="operador" id="naranja" onClick={calcular}>
+          <button
+            className="operador"
+            id="naranja"
+            onClick={() => computar("igual")}
+          >
             =
           </button>
         </div>
