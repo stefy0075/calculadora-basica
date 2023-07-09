@@ -15,7 +15,9 @@ export default {
         primary: '#455A64',
         secondary: '#2196F3',
         tertiary: '#FFC107',
-        quaternary: '#4CAF50'
+        quaternary: '#4CAF50',
+        quintary: '#050a30',
+        sextary: '#2d0085'
       },
     },
   },
