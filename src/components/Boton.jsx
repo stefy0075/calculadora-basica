@@ -8,7 +8,7 @@ function Boton(props) {
 
   return (
     <button
-      className={`shadowcss h-[55px] flex flex-1 justify-center items-center font-bold font-[30px] border-2 border-black rounded-[20px] m-[3px] text-white cursor-pointer select-none active:translate-y-1 
+      className={`shadowcss h-[40px] md:h-[55px] flex flex-1 justify-center items-center font-bold font-[30px] border-2 border-black rounded-[20px] m-[3px] text-white cursor-pointer select-none active:translate-y-1 
       ${esOperador(props.children) ? "bg-quaternary hover:bg-[#00471b]" : "bg-quintary hover:bg-gray-700 active:translate-y-1"}`.trimEnd()}
       onClick={() => props.manejarClic(props.children)}
     >

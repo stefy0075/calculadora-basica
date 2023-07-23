@@ -23,7 +23,7 @@ function App() {
 
   return (
     <div className="bghome h-screen pt-[10px] flex flex-wrap  justify-center items-center">
-      <div className=" bgcalc contenedor-calculadora shadowcss2 w-[35%] h-[90%] rounded-[20px] p-[14px]">
+      <div className=" bgcalc  shadowcss2 w-[90%] md:w-[40%] rounded-[20px] p-[14px]">
         <Pantalla input={input} />
         <div className="m-[4px] flex items-center justify-center">
           <Boton manejarClic={agregarInput}>1</Boton>
